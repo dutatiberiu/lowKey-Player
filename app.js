@@ -85,9 +85,9 @@ const VisualizerRenderers = {
             const key = `${type}-${x1}-${y1}-${x2}-${y2}`;
             if (!VisualizerRenderers.gradientCache[key]) {
                 const gradient = ctx.createLinearGradient(x1, y1, x2, y2);
-                gradient.addColorStop(0, '#6c5ce7');
-                gradient.addColorStop(0.5, '#00d4ff');
-                gradient.addColorStop(1, '#6c5ce7');
+                gradient.addColorStop(0, '#c8ff00');
+                gradient.addColorStop(0.5, '#8aad00');
+                gradient.addColorStop(1, '#c8ff00');
                 VisualizerRenderers.gradientCache[key] = gradient;
             }
             return VisualizerRenderers.gradientCache[key];
@@ -124,9 +124,9 @@ const VisualizerRenderers = {
                 const barHeight = (dataArray[i] / 255) * height;
 
                 const gradient = ctx.createLinearGradient(0, height - barHeight, 0, height);
-                gradient.addColorStop(0, '#6c5ce7');
-                gradient.addColorStop(0.5, '#00d4ff');
-                gradient.addColorStop(1, '#6c5ce7');
+                gradient.addColorStop(0, '#c8ff00');
+                gradient.addColorStop(0.5, '#8aad00');
+                gradient.addColorStop(1, '#c8ff00');
 
                 ctx.fillStyle = gradient;
                 ctx.fillRect(x, height - barHeight, barWidth - 2, barHeight);
@@ -205,7 +205,7 @@ const VisualizerRenderers = {
                 dz: -0.1,
                 ddx: 0.001 * dx * xc,
                 ddy: 0.001 * dy * yc,
-                color: y > (cy/2) ? 'rgba(181, 191, 212, 0.8)' : 'rgba(108, 92, 231, 0.6)'
+                color: y > (cy/2) ? 'rgba(200, 255, 0, 0.3)' : 'rgba(138, 173, 0, 0.5)'
             };
         },
 
@@ -250,7 +250,7 @@ const VisualizerRenderers = {
 
                 ctx.beginPath();
                 ctx.globalCompositeOperation = "lighter";
-                ctx.fillStyle = hitBreakpoint ? 'rgba(0, 212, 255, 0.9)' : p.color;
+                ctx.fillStyle = hitBreakpoint ? 'rgba(200, 255, 0, 0.9)' : p.color;
                 ctx.arc(p.x + cx, p.y + cy, p.radius, 0, Math.PI * 2, false);
                 ctx.fill();
                 ctx.closePath();
@@ -258,8 +258,8 @@ const VisualizerRenderers = {
         },
 
         drawAverageCircle(ctx, cx, cy, avg, hitBreakpoint) {
-            ctx.strokeStyle = hitBreakpoint ? 'rgba(0, 212, 255, 1)' : 'rgba(108, 92, 231, 0.8)';
-            ctx.fillStyle = hitBreakpoint ? 'rgba(0, 212, 255, 0.05)' : 'rgba(108, 92, 231, 0.1)';
+            ctx.strokeStyle = hitBreakpoint ? 'rgba(200, 255, 0, 1)' : 'rgba(138, 173, 0, 0.8)';
+            ctx.fillStyle = hitBreakpoint ? 'rgba(200, 255, 0, 0.05)' : 'rgba(138, 173, 0, 0.1)';
             ctx.lineWidth = 1;
 
             ctx.beginPath();
@@ -273,8 +273,8 @@ const VisualizerRenderers = {
             const waveformTick = 0.05;
             this.rotation += hitBreakpoint ? waveformTick : -waveformTick;
 
-            ctx.strokeStyle = hitBreakpoint ? 'rgba(0, 212, 255, 0.8)' : 'rgba(108, 92, 231, 0.4)';
-            ctx.fillStyle = hitBreakpoint ? 'rgba(0, 0, 0, 0)' : 'rgba(108, 92, 231, 0.05)';
+            ctx.strokeStyle = hitBreakpoint ? 'rgba(200, 255, 0, 0.8)' : 'rgba(138, 173, 0, 0.4)';
+            ctx.fillStyle = hitBreakpoint ? 'rgba(0, 0, 0, 0)' : 'rgba(138, 173, 0, 0.05)';
             ctx.lineWidth = 1;
             ctx.lineCap = "round";
 
@@ -359,15 +359,15 @@ const VisualizerRenderers = {
 
             // Draw background gradient
             const bgGradient = ctx.createLinearGradient(0, 0, 0, height);
-            bgGradient.addColorStop(0, 'rgba(10, 14, 39, 0.3)');
-            bgGradient.addColorStop(1, 'rgba(20, 10, 30, 0.3)');
+            bgGradient.addColorStop(0, 'rgba(10, 10, 11, 0.3)');
+            bgGradient.addColorStop(1, 'rgba(10, 10, 11, 0.3)');
             ctx.fillStyle = bgGradient;
             ctx.fillRect(0, 0, width, height);
 
             // Draw three reactive waves
-            this.drawReactiveWave(ctx, width, height, centerY, this.bassEnergy, this.kickEnergy, 1, '#6c5ce7', 3);
-            this.drawReactiveWave(ctx, width, height, centerY, this.midEnergy, this.kickEnergy, 2, '#00d4ff', 2.5);
-            this.drawReactiveWave(ctx, width, height, centerY, this.highEnergy, this.kickEnergy, 3, '#9d7ce8', 2);
+            this.drawReactiveWave(ctx, width, height, centerY, this.bassEnergy, this.kickEnergy, 1, '#c8ff00', 3);
+            this.drawReactiveWave(ctx, width, height, centerY, this.midEnergy, this.kickEnergy, 2, '#8aad00', 2.5);
+            this.drawReactiveWave(ctx, width, height, centerY, this.highEnergy, this.kickEnergy, 3, '#5a7a00', 2);
         },
 
         drawReactiveWave(ctx, width, height, centerY, energy, kickEnergy, waveNum, color, lineWidth) {
@@ -452,7 +452,7 @@ function drawVisualizer() {
 
     // Clear canvas completely for instant response
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = 'rgb(10, 14, 39)';
+    ctx.fillStyle = 'rgb(10, 10, 11)';
     ctx.fillRect(0, 0, width, height);
 
     // Apply global opacity for transitions
@@ -702,7 +702,7 @@ function renderAlbums() {
         </div>
     `).join('');
 
-    albumsPanel.innerHTML = html || '<div style="padding: 20px; text-align: center; color: #a0a0a0;">No albums</div>';
+    albumsPanel.innerHTML = html || '<div style="padding: 20px; text-align: center; color: #6b6b76;">No albums</div>';
 }
 
 // Select Artist
@@ -982,9 +982,9 @@ function toggleRepeat() {
 
     // Visual feedback for repeat mode
     if (state.repeatMode === 'one') {
-        repeatBtn.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.6)';
+        repeatBtn.style.boxShadow = '0 0 15px rgba(200, 255, 0, 0.5)';
     } else if (state.repeatMode === 'all') {
-        repeatBtn.style.boxShadow = '0 0 20px rgba(108, 92, 231, 0.6)';
+        repeatBtn.style.boxShadow = '0 0 15px rgba(200, 255, 0, 0.3)';
     } else {
         repeatBtn.style.boxShadow = '';
     }
