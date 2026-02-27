@@ -701,7 +701,7 @@ body {
     }
 
     .playlist {
-        max-height: 400px;
+        max-height: min(400px, 45vh);
     }
 }
 
@@ -778,6 +778,91 @@ body {
     .time-current,
     .time-duration {
         font-size: 10px;
+    }
+
+    .player-main {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .visualizer-container {
+        height: 160px;
+    }
+
+    .song-title {
+        font-size: 16px;
+    }
+
+    .control-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .play-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .logo-img {
+        height: 65px;
+        margin: -20px 0;
+    }
+
+    .playlist {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .player-container {
+        padding: 8px;
+    }
+
+    .player-main {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .visualizer-container {
+        height: 130px;
+    }
+
+    .song-title {
+        font-size: 14px;
+    }
+
+    .main-controls {
+        gap: 6px;
+    }
+
+    .control-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .play-btn {
+        width: 46px;
+        height: 46px;
+    }
+
+    .logo-img {
+        height: 55px;
+        margin: -16px 0;
+    }
+
+    .playlist {
+        max-height: 250px;
+        padding: 12px;
+    }
+
+    .visualizer-style-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .visualizer-style-btn svg {
+        width: 13px;
+        height: 13px;
     }
 }
 
