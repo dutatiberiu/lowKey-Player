@@ -215,7 +215,7 @@ def main():
         json.dump(playlist_data, f, indent=2, ensure_ascii=False)
 
     print(f"[OK] Playlist generat cu succes: {output_file}")
-    print("\n>> Gata! Acum poti actualiza app.js si index.html pentru multi-user support!\n")
+    print("\n>> Gata! Sincronizare completă!\n")
 
 if __name__ == "__main__":
     main()
